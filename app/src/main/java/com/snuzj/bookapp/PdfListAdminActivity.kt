@@ -13,6 +13,7 @@ import com.snuzj.bookapp.databinding.ActivityPdfListAdminBinding
 import com.snuzj.bookapp.pdf.AdapterPdfAdmin
 import com.snuzj.bookapp.pdf.ModelPdf
 
+@Suppress("DEPRECATION")
 class PdfListAdminActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPdfListAdminBinding
@@ -44,6 +45,11 @@ class PdfListAdminActivity : AppCompatActivity() {
 
         //load pdf/books
         loadPdfList()
+
+        //handle click, go back
+        binding.backBtn.setOnClickListener{
+            onBackPressed()
+        }
 
         //search
         binding.searchEt.addTextChangedListener(object : TextWatcher{

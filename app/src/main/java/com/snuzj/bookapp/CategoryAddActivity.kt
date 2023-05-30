@@ -28,8 +28,8 @@ class CategoryAddActivity : AppCompatActivity() {
         progressDialog.setCanceledOnTouchOutside(false)
 
         //handle click,go back
-        binding.backBtn.setOnClickListener {
-
+        binding.backBtn.setOnClickListener{
+            onBackPressed()
         }
 
         //handle click, begin upload category
