@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#ff2d55</color>
+    <color name="purple">#5856d6</color>
+    <color name="orange">#ff9500</color>
+    <color name="yellow">#ffcc00</color>
+    <color name="red_orange">#ff3b30</color>
+    <color name="light_blue">#5ac8fa</color>
+    <color name="blue">#147efb</color>
+    <color name="green">#53d769</color>
+    <color name="twitter">#1DA1F2</color>
+    <color name="gray">#657786</color>
+    <color name="lightgray">#AAB8C2</color>
+</resources>

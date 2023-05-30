@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Book App</string>
+    <string name="logo">logo</string>
+    <string name="skip">Tiếp tục (Không cần đăng nhập)</string>
+    <string name="login">Đăng nhập</string>
+    <string name="password">Mật khẩu</string>
+    <string name="email">Email</string>
+    <string name="forgotPass">Quên mật khẩu?</string>
+    <string name="new_user_login">Chưa có tài khoản? <b>Đăng ký</b></string>
+    <string name="SignupTv">Tạo tài khoản của bạn</string>
+    <string name="loginTv">Để bắt đầu, trước tiên hãy điền thông tin tài khoản của bạn</string>
+    <string name="back">back</string>
+    <string name="name">Tên</string>
+    <string name="register">Đăng ký</string>
+    <string name="confirmpass">Xác nhận mật khẩu</string>
+    <string name="logoutbtn">logoutBtn</string>
+    <string name="dashboard_user">Dashboard User</string>
+    <string name="subtitle_user">abc@example.com</string>
+    <string name="dashboard_admin">Dashboard Admin</string>
+    <string name="addCategory">+ Thêm danh mục</string>
+    <string name="CategoryTitle">Tên danh mục</string>
+    <string name="Submit">Thêm</string>
+    <string name="delete">delete</string>
+    <string name="search">Tìm kiếm</string>
+    <string name="addpdfbutton">addpdfbutton</string>
+    <string name="AddNewBook">Để thêm muốn cuốn sách, bạn cần làm theo các bước sau</string>
+    <string name="addatachfile">addAtachFile</string>
+    <string name="bookTitle">Tiêu đề</string>
+    <string name="bookDescription">Nội dung</string>
+    <string name="upload">Tải lên</string>
+</resources>
