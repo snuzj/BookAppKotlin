@@ -28,4 +28,8 @@
     <string name="bookTitle">Tiêu đề</string>
     <string name="bookDescription">Nội dung</string>
     <string name="upload">Tải lên</string>
+    <string name="book">Sách</string>
+    <string name="category">Danh mục</string>
+    <string name="more">more</string>
+    <string name="description">The description of the book</string>
 </resources>

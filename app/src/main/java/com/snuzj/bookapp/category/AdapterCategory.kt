@@ -1,6 +1,7 @@
 package com.snuzj.bookapp.category
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.FirebaseDatabase
+import com.snuzj.bookapp.PdfListAdminActivity
 import com.snuzj.bookapp.databinding.RowCategoryBinding
 
 class AdapterCategory: RecyclerView.Adapter<AdapterCategory.HolderCategory>, Filterable {
@@ -52,9 +54,9 @@ class AdapterCategory: RecyclerView.Adapter<AdapterCategory.HolderCategory>, Fil
         //set data
         holder.categoryTv.text = category
 
-        //handle click
+        //handle click, delete category
         holder.deleteBtn.setOnClickListener {
-            //init ui views
+            //confirm be4 delete
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Xoá danh mục")
                 .setMessage("Bạn có chắc chắn muốn xóa không?")
@@ -67,6 +69,15 @@ class AdapterCategory: RecyclerView.Adapter<AdapterCategory.HolderCategory>, Fil
                 }
                 .show()
         }
+
+        //handle click, start pdf list admin activity, also pas pdf id, title
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, PdfListAdminActivity::class.java)
+            intent.putExtra("categoryId", id)
+            intent.putExtra("category", category)
+            context.startActivity(intent)
+        }
+
     }
 
     private fun deleteCategory(model: ModelCategory, holder: HolderCategory) {
