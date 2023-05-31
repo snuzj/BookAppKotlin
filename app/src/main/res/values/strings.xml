@@ -32,4 +32,11 @@
     <string name="category">Danh mục</string>
     <string name="more">more</string>
     <string name="description">The description of the book</string>
+    <string name="title">Tiêu đề</string>
+    <string name="admin">\@admin</string>
+    <string name="blank"></string>
+    <string name="edit_book_icon">Sửa thông tin của sách</string>
+    <string name="new_title_et">Hãy nhập tiêu đề mới</string>
+    <string name="new_description_et">Sửa lại nội dung chính</string>
+    <string name="update_book">Cập nhật thông tin</string>
 </resources>

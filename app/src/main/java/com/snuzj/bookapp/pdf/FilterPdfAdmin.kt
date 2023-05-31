@@ -5,17 +5,15 @@ import android.widget.Filter
 /*
     Used to filtered data from recyclerview | search pdf from pdf list in recycler view
  */
-class FilterPdfAdmin : Filter {
-
-    //arraylist in which we wanna search
-    var filterList: ArrayList<ModelPdf>
+class FilterPdfAdmin
+    ( //constructor
+    var filterList: ArrayList<ModelPdf>, adapterPdfAdmin: AdapterPdfAdmin? //arraylist in which we wanna search
+) : Filter() {
 
     //adapter in which filter need to be implemented
     var adapterPdfAdmin: AdapterPdfAdmin
 
-    //constructor
-    constructor(filterList: ArrayList<ModelPdf>, adapterPdfAdmin: AdapterPdfAdmin?) {
-        this.filterList = filterList
+    init {
         this.adapterPdfAdmin = adapterPdfAdmin!!
     }
 

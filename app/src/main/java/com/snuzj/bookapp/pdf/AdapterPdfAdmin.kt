@@ -1,12 +1,16 @@
 package com.snuzj.bookapp.pdf
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.snuzj.bookapp.PdfEditActivity
 import com.snuzj.bookapp.application.MyApplication
 import com.snuzj.bookapp.databinding.RowPdfAdminBinding
 
@@ -18,7 +22,7 @@ class AdapterPdfAdmin
 
 
     //filter object
-    var filter: FilterPdfAdmin? = null
+    private var filter: FilterPdfAdmin? = null
 
     //viewBinding
     private lateinit var binding: RowPdfAdminBinding
@@ -62,6 +66,52 @@ class AdapterPdfAdmin
 
         //load pdf size
         MyApplication.loadPdfSize(pdfUrl, title, holder.sizeTv)
+
+        //handle click, show dialog with option 1) EditBook 2) DeleteBook
+        holder.moreBtn.setOnClickListener {
+            moreOptionsDialog(model, holder)
+        }
+    }
+
+    private fun moreOptionsDialog(model: ModelPdf, holder: AdapterPdfAdmin.HolderPdfAdmin) {
+        //get id, url, title of book
+        val bookId = model.id
+        val bookUrl = model.url
+        val bookTitle = model.title
+
+        //options to show in dialog
+        val options = arrayOf("Sửa","Xóa") //Edit n Delete
+
+        //alrt dialog
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("Lựa chọn của bạn")
+            .setItems(options){dialog, position->
+                //handle item click
+                if(position == 0){
+                    //edit clicked
+                    val intent = Intent(context, PdfEditActivity::class.java)
+                    intent.putExtra("bookId",bookId)
+                    context.startActivity(intent)
+                }
+                else if(position == 1){
+                    //delete clicked
+                    //show confirmation dialog
+                    val builder = androidx.appcompat.app.AlertDialog.Builder(context)
+                    builder.setTitle("Xoá sách đã chọn")
+                        .setMessage("Bạn có chắc chắn muốn xóa không?")
+                        .setPositiveButton("Đồng ý"){a,d->
+                            Toast.makeText(context,"Đang xóa", Toast.LENGTH_SHORT).show()
+                            MyApplication.deleteBook(context,bookId, bookUrl, bookTitle)
+                        }
+                        .setNegativeButton("Quay lại"){a,d->
+                            a.dismiss()
+                        }
+                        .show()
+
+                }
+            }
+            .show()
+
     }
 
     override fun getFilter(): Filter {

@@ -59,7 +59,7 @@ class PdfListAdminActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence, p1: Int, p2: Int, p3: Int) {
                 //filter data
                 try{
-                    adapterPdfAdmin.filter!!.filter(s)
+                    adapterPdfAdmin.filter.filter(s)
                 } catch (e:Exception){
                     Log.d(TAG,"OnTextChanged: ${e.message}")
                 }
