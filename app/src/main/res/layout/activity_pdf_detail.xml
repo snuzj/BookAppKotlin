@@ -47,6 +47,15 @@
             android:textColor="@color/gray"/>
     </RelativeLayout>
 
+    <!--toolbar divider-->
+    <View
+        android:id="@+id/toolBarDiv"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        style="?actionBarDivider"
+        android:background="@color/lightgray"
+        android:layout_below="@id/toolbarRl"/>
+
         <!--All contnt under scrollview-->
     <ScrollView
         android:id="@+id/pdfSv"
@@ -238,14 +247,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <!--actionBar divider-->
-    <View
-        android:id="@+id/actionBarDiv"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        style="?actionBarDivider"
-        android:background="@color/lightgray"
-        android:layout_below="@id/toolbarRl"/>
+
 
     <View
         android:id="@+id/scrollDiv"
@@ -255,15 +257,7 @@
         android:background="@color/lightgray"
         android:layout_below="@id/pdfSv"/>
 
-    <View
-        android:id="@+id/bottomDiv"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        style="?actionBarDivider"
-        android:background="@color/lightgray"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="56dp"/>
-
+    <!--read Book Button-->
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/readBookBtn"
         android:layout_width="56dp"
@@ -274,7 +268,48 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="80dp"
         android:src="@drawable/baseline_read_more_white"
-        android:contentDescription="read"/>
+        android:contentDescription="@string/readBook"/>
+
+    <View
+        android:id="@+id/bottomDiv"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        style="?actionBarDivider"
+        android:background="@color/lightgray"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="56dp"/>
+    
+    <LinearLayout
+        android:id="@+id/booksOptionsLl"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:src="@drawable/baseline_download_24"
+            android:background="@android:color/transparent"
+            android:layout_weight="1"/>
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:src="@drawable/baseline_download_24"
+            android:background="@android:color/transparent"
+            android:layout_weight="1"/>
+        <ImageButton
+            android:id="@+id/downloadBookBtn"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:src="@drawable/baseline_download_24"
+            android:background="@android:color/transparent"
+            android:layout_weight="1"
+            android:contentDescription="@string/downloads"/>
+
+
+
+    </LinearLayout>
+
 
 
 
