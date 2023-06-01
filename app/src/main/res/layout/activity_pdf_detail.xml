@@ -48,201 +48,234 @@
     </RelativeLayout>
 
         <!--All contnt under scrollview-->
-        <ScrollView
-            android:contentDescription="@string/pdfsv"
+    <ScrollView
+        android:id="@+id/pdfSv"
+        android:contentDescription="@string/pdfsv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbarRl"
+        android:padding="10dp">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/toolbarRl"
-            android:padding="10dp">
+            android:orientation="vertical">
 
-            <LinearLayout
+            <!--book info-->
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--book preview-->
+                <RelativeLayout
+                    android:id="@+id/pdfRl"
+                    android:layout_width="110dp"
+                    android:layout_height="150dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/lightgray">
+
+                    <!--PDFView-->
+                    <com.github.barteksc.pdfviewer.PDFView
+                        android:id="@+id/pdfView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                    <!--progress bar-->
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+
+                </RelativeLayout>
+                    <!--Book Title-->
+                    <TextView
+                        android:id="@+id/titleTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/TextAppearance.AppCompat.Title"
+                        android:layout_toEndOf="@id/pdfRl"
+                        tools:text="@string/title"/>
+
+                    <!--table-->
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleTv"
+                        android:layout_toEndOf="@id/pdfRl">
+
+                        <!--tablerow-->
+                        <TableRow>
+                            <TextView
+                                android:id="@+id/categoryLabelTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.AppCompat.Caption"
+                                android:layout_marginEnd="5dp"
+                                android:text="@string/category"/>
+
+                            <TextView
+                                android:id="@+id/categoryTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.AppCompat.Caption"
+                                android:text="@string/n_a"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="1"/>
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/dateLabelTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.AppCompat.Caption"
+                                android:layout_marginEnd="5dp"
+                                android:text="@string/date"/>
+
+                            <TextView
+                                android:id="@+id/dateTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.AppCompat.Caption"
+                                android:text="@string/n_a"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="1"/>
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/sizeLabelTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.AppCompat.Caption"
+                                android:layout_marginEnd="5dp"
+                                android:text="@string/size"/>
+
+                            <TextView
+                                android:id="@+id/sizeTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.AppCompat.Caption"
+                                android:text="@string/n_a"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="1"/>
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/viewsLabelTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.AppCompat.Caption"
+                                android:layout_marginEnd="5dp"
+                                android:text="@string/view"/>
+
+                            <TextView
+                                android:id="@+id/viewsTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.AppCompat.Caption"
+                                android:text="@string/n_a"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="1"/>
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/downloadsLabelTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.AppCompat.Caption"
+                                android:layout_marginEnd="5dp"
+                                android:text="@string/downloads"/>
+
+                            <TextView
+                                android:id="@+id/downloadsTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.AppCompat.Caption"
+                                android:text="@string/n_a"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="1"/>
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_marginTop="5dp">
+                            <TextView
+                                android:id="@+id/pagesLabelTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.AppCompat.Caption"
+                                android:layout_marginEnd="5dp"
+                                android:text="@string/pages"/>
+
+                            <TextView
+                                android:id="@+id/pagesTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/TextAppearance.AppCompat.Caption"
+                                android:text="@string/n_a"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="1"/>
+                        </TableRow>
+                    </TableLayout>
+            </RelativeLayout>
+
+            <!--book description-->
+            <TextView
+                android:id="@+id/descriptionTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginTop="5dp"
+                tools:text="@string/bookDescription"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+    </ScrollView>
 
-                <!--book info-->
-                <RelativeLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <!--book preview-->
-                    <RelativeLayout
-                        android:id="@+id/pdfRl"
-                        android:layout_width="110dp"
-                        android:layout_height="150dp"
-                        android:layout_marginEnd="5dp"
-                        android:background="@color/lightgray">
-
-                        <!--PDFView-->
-                        <com.github.barteksc.pdfviewer.PDFView
-                            android:id="@+id/pdfView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"/>
-
-                        <!--progress bar-->
-                        <ProgressBar
-                            android:id="@+id/progressBar"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-
-                    </RelativeLayout>
-                        <!--Book Title-->
-                        <TextView
-                            android:id="@+id/titleTv"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            style="@style/TextAppearance.AppCompat.Title"
-                            android:layout_toEndOf="@id/pdfRl"
-                            tools:text="@string/title"/>
-
-                        <!--table-->
-                        <TableLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/titleTv"
-                            android:layout_toEndOf="@id/pdfRl">
-
-                            <!--tablerow-->
-                            <TableRow>
-                                <TextView
-                                    android:id="@+id/categoryLabelTv"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    style="@style/TextAppearance.AppCompat.Caption"
-                                    android:layout_marginEnd="5dp"
-                                    android:text="@string/category"/>
-
-                                <TextView
-                                    android:id="@+id/categoryTv"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    style="@style/TextAppearance.AppCompat.Caption"
-                                    android:text="@string/n_a"
-                                    android:layout_marginEnd="5dp"
-                                    android:layout_weight="1"/>
-                            </TableRow>
-
-                            <TableRow
-                                android:layout_marginTop="5dp">
-                                <TextView
-                                    android:id="@+id/dateLabelTv"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    style="@style/TextAppearance.AppCompat.Caption"
-                                    android:layout_marginEnd="5dp"
-                                    android:text="@string/date"/>
-
-                                <TextView
-                                    android:id="@+id/dateTv"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    style="@style/TextAppearance.AppCompat.Caption"
-                                    android:text="@string/n_a"
-                                    android:layout_marginEnd="5dp"
-                                    android:layout_weight="1"/>
-                            </TableRow>
-
-                            <TableRow
-                                android:layout_marginTop="5dp">
-                                <TextView
-                                    android:id="@+id/sizeLabelTv"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    style="@style/TextAppearance.AppCompat.Caption"
-                                    android:layout_marginEnd="5dp"
-                                    android:text="@string/size"/>
-
-                                <TextView
-                                    android:id="@+id/sizeTv"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    style="@style/TextAppearance.AppCompat.Caption"
-                                    android:text="@string/n_a"
-                                    android:layout_marginEnd="5dp"
-                                    android:layout_weight="1"/>
-                            </TableRow>
-
-                            <TableRow
-                                android:layout_marginTop="5dp">
-                                <TextView
-                                    android:id="@+id/viewsLabelTv"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    style="@style/TextAppearance.AppCompat.Caption"
-                                    android:layout_marginEnd="5dp"
-                                    android:text="@string/view"/>
-
-                                <TextView
-                                    android:id="@+id/viewsTv"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    style="@style/TextAppearance.AppCompat.Caption"
-                                    android:text="@string/n_a"
-                                    android:layout_marginEnd="5dp"
-                                    android:layout_weight="1"/>
-                            </TableRow>
-
-                            <TableRow
-                                android:layout_marginTop="5dp">
-                                <TextView
-                                    android:id="@+id/downloadsLabelTv"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    style="@style/TextAppearance.AppCompat.Caption"
-                                    android:layout_marginEnd="5dp"
-                                    android:text="@string/downloads"/>
-
-                                <TextView
-                                    android:id="@+id/downloadsTv"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    style="@style/TextAppearance.AppCompat.Caption"
-                                    android:text="@string/n_a"
-                                    android:layout_marginEnd="5dp"
-                                    android:layout_weight="1"/>
-                            </TableRow>
-
-                            <TableRow
-                                android:layout_marginTop="5dp">
-                                <TextView
-                                    android:id="@+id/pagesLabelTv"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    style="@style/TextAppearance.AppCompat.Caption"
-                                    android:layout_marginEnd="5dp"
-                                    android:text="@string/pages"/>
-
-                                <TextView
-                                    android:id="@+id/pagesTv"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    style="@style/TextAppearance.AppCompat.Caption"
-                                    android:text="@string/n_a"
-                                    android:layout_marginEnd="5dp"
-                                    android:layout_weight="1"/>
-                            </TableRow>
-                        </TableLayout>
-                </RelativeLayout>
-
-                <!--book description-->
-                <TextView
-                    android:id="@+id/descriptionTv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    tools:text="@string/bookDescription"
-                    android:textColor="@color/black"/>
-            </LinearLayout>
-        </ScrollView>
-
-
-
+    <!--actionBar divider-->
     <View
+        android:id="@+id/actionBarDiv"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         style="?actionBarDivider"
-        android:background="@color/gray"
+        android:background="@color/lightgray"
         android:layout_below="@id/toolbarRl"/>
+
+    <View
+        android:id="@+id/scrollDiv"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        style="?actionBarDivider"
+        android:background="@color/lightgray"
+        android:layout_below="@id/pdfSv"/>
+
+    <View
+        android:id="@+id/bottomDiv"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        style="?actionBarDivider"
+        android:background="@color/lightgray"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="56dp"/>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/readBookBtn"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:background="@drawable/shape_circlebutton01"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="80dp"
+        android:src="@drawable/baseline_read_more_white"
+        android:contentDescription="read"/>
+
+
+
 </RelativeLayout>

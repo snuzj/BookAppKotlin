@@ -1,5 +1,6 @@
 package com.snuzj.bookapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -35,6 +36,13 @@ class PdfDetailActivity : AppCompatActivity() {
         //handle button click , go back
         binding.backBtn.setOnClickListener {
             onBackPressed()
+        }
+
+        //handle button click, read more
+        binding.readBookBtn.setOnClickListener {
+            val intent = Intent(this,PdfViewActivity::class.java)
+            intent.putExtra("bookId",bookId)
+            startActivity(intent)
         }
 
         // set the text of a TextView with the ID "subTitleTv" to match the TextView with the ID "titleTv"
