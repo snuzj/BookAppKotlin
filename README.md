@@ -11,8 +11,8 @@ List of works to do:
 7. Show Books: Admin Access ✓
 8. Add, Edit, Delete: Admin Access ✓
 9. Show Books Details ✓
-10. Read Books: Admin Access ✓
-11. Download Books: Admin Access x
+10. Read Books: All Users Access ✓
+11. Download Books: All Users Access x
 12. Show Books: User Access x
 13. Add to Favorite: User Access 
 14. Manage Profiles: All Users Access x
