@@ -39,4 +39,12 @@
     <string name="new_title_et">Hãy nhập tiêu đề mới</string>
     <string name="new_description_et">Sửa lại nội dung chính</string>
     <string name="update_book">Cập nhật thông tin</string>
+    <string name="book_details">Chi tiết về sách</string>
+    <string name="date">Ngày đăng</string>
+    <string name="size">Kích thước</string>
+    <string name="view">Lượt xem</string>
+    <string name="downloads">Lượt tải về</string>
+    <string name="pages">Số trang</string>
+    <string name="n_a">N/A</string>
+    <string name="pdfsv">pdfSv</string>
 </resources>

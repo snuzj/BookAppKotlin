@@ -10,6 +10,7 @@ import android.widget.Filter
 import android.widget.Filterable
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.snuzj.bookapp.PdfDetailActivity
 import com.snuzj.bookapp.PdfEditActivity
 import com.snuzj.bookapp.application.MyApplication
 import com.snuzj.bookapp.databinding.RowPdfAdminBinding
@@ -70,6 +71,13 @@ class AdapterPdfAdmin
         //handle click, show dialog with option 1) EditBook 2) DeleteBook
         holder.moreBtn.setOnClickListener {
             moreOptionsDialog(model, holder)
+        }
+
+        //handle item click, open PdfDetailActivity activity, lets create it first
+        holder.itemView.setOnClickListener{
+            val intent = Intent(context, PdfDetailActivity::class.java)
+            intent.putExtra("bookId",pdfId) //will load book details
+            context.startActivity(intent)
         }
     }
 

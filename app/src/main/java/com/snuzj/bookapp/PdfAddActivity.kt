@@ -142,7 +142,7 @@ class PdfAddActivity : AppCompatActivity() {
                         val uploadedPdfUrl = uriTask.result.toString()
                         uploadedPdfInfoToDb(uploadedPdfUrl, timestamp)
                     } else {
-                        // Handling when URL cannot be obtained
+                            // Handling when URL cannot be obtained
                     }
                 }
             }

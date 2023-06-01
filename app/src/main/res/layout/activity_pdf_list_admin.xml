@@ -26,19 +26,22 @@
 
         <TextView
             android:id="@+id/titleTv"
+            style="@style/TextAppearance.AppCompat.SearchResult.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_centerHorizontal="true"
-            android:text="@string/book"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@id/backBtn"
+            android:text="@string/book"/>
         <TextView
             android:id="@+id/subTitleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/titleTv"
-            android:layout_centerHorizontal="true"
+            android:layout_toEndOf="@id/backBtn"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
             android:text="@string/category"
             android:textColor="@color/gray"/>
     </RelativeLayout>
