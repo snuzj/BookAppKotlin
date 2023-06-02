@@ -16,7 +16,8 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="10dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/logo" />
+            android:src="@drawable/logo"
+            android:contentDescription="@string/logo" />
 
         <TextView
             android:id="@+id/titleTv"
@@ -24,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_centerHorizontal="true"
-            android:text="@string/dashboard_user"
+            android:text="@string/main_dashboard"
             android:textStyle="bold"
             android:textColor="@color/black"/>
         <TextView
@@ -56,6 +57,38 @@
             android:background="@color/lightgray" />
 
     </RelativeLayout>
+
+    <!--show book category-->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:layout_margin="5dp"
+        app:tabTextColor="@color/gray"
+        app:tabSelectedTextColor="@color/black"
+        app:tabIndicatorColor="@color/twitter"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="2dp"
+        app:tabMode="scrollable"
+        android:layout_below="@id/toolbarRl"
+        android:contentDescription="@string/tablayout"/>
+
+    <!--divider-->
+    <View
+        android:id="@+id/divider"
+        android:layout_below="@id/tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lightgray" />
+
+    <!--view pager-->
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider"
+        android:contentDescription="@string/view"/>
 
 
 </RelativeLayout>

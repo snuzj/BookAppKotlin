@@ -1,6 +1,7 @@
-package com.snuzj.bookapp.pdf
+package com.snuzj.bookapp.pdf.admin
 
 import android.widget.Filter
+import com.snuzj.bookapp.pdf.ModelPdf
 
 /*
     Used to filtered data from recyclerview | search pdf from pdf list in recycler view

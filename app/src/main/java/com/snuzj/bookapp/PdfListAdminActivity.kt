@@ -5,12 +5,13 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import androidx.core.widget.addTextChangedListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.snuzj.bookapp.databinding.ActivityPdfListAdminBinding
-import com.snuzj.bookapp.pdf.AdapterPdfAdmin
+import com.snuzj.bookapp.pdf.admin.AdapterPdfAdmin
 import com.snuzj.bookapp.pdf.ModelPdf
 
 @Suppress("DEPRECATION")
@@ -52,7 +53,7 @@ class PdfListAdminActivity : AppCompatActivity() {
         }
 
         //search
-        binding.searchEt.addTextChangedListener(object : TextWatcher{
+        binding.searchEt.addTextChangedListener { object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
 
@@ -68,7 +69,7 @@ class PdfListAdminActivity : AppCompatActivity() {
             override fun afterTextChanged(p0: Editable?) {
             }
 
-        })
+        }}
 
     }
 

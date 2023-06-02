@@ -48,4 +48,8 @@
     <string name="n_a">N/A</string>
     <string name="pdfsv">pdfSv</string>
     <string name="readBook">Đọc sách</string>
+    <string name="tablayout">tablayout</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="main_dashboard">Trang chủ</string>
 </resources>

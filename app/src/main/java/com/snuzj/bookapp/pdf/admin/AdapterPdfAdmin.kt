@@ -1,4 +1,4 @@
-package com.snuzj.bookapp.pdf
+package com.snuzj.bookapp.pdf.admin
 
 import android.app.AlertDialog
 import android.content.Context
@@ -14,6 +14,7 @@ import com.snuzj.bookapp.PdfDetailActivity
 import com.snuzj.bookapp.PdfEditActivity
 import com.snuzj.bookapp.application.MyApplication
 import com.snuzj.bookapp.databinding.RowPdfAdminBinding
+import com.snuzj.bookapp.pdf.ModelPdf
 
 class AdapterPdfAdmin
     (//constructor
@@ -81,7 +82,7 @@ class AdapterPdfAdmin
         }
     }
 
-    private fun moreOptionsDialog(model: ModelPdf, holder: AdapterPdfAdmin.HolderPdfAdmin) {
+    private fun moreOptionsDialog(model: ModelPdf, holder: HolderPdfAdmin) {
         //get id, url, title of book
         val bookId = model.id
         val bookUrl = model.url
