@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PdfDetailActivity">
+    tools:context=".activities.pdf.PdfDetailActivity">
 
     <!--toolbar-->
     <RelativeLayout
@@ -259,7 +259,7 @@
 
     <!--read Book Button-->
     <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/readBookBtn"
+        android:id="@+id/commentBtn"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:background="@drawable/shape_circlebutton01"
@@ -267,8 +267,8 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="80dp"
-        android:src="@drawable/baseline_read_more_white"
-        android:contentDescription="@string/readBook"/>
+        android:src="@drawable/baseline_add_comment_24"
+        android:contentDescription="@string/commentbtn"/>
 
     <View
         android:id="@+id/bottomDiv"
@@ -286,17 +286,22 @@
         android:orientation="horizontal"
         android:layout_alignParentBottom="true">
         <ImageButton
+            android:id="@+id/readBookBtn"
             android:layout_width="0dp"
             android:layout_height="56dp"
-            android:src="@drawable/baseline_download_24"
+            android:src="@drawable/baseline_read_more_white"
+            app:tint="@color/black"
             android:background="@android:color/transparent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:contentDescription="@string/readBook"/>
         <ImageButton
+            android:id="@+id/favoriteBtn"
             android:layout_width="0dp"
             android:layout_height="56dp"
-            android:src="@drawable/baseline_download_24"
+            android:src="@drawable/baseline_favorite_border_24"
             android:background="@android:color/transparent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:contentDescription="@string/favoritebtn" />
         <ImageButton
             android:id="@+id/downloadBookBtn"
             android:layout_width="0dp"

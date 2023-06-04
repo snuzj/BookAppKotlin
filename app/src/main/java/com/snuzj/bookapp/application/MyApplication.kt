@@ -12,11 +12,13 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import com.github.barteksc.pdfviewer.PDFView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
+import com.snuzj.bookapp.activities.pdf.PdfDetailActivity
 import java.util.Calendar
 import java.util.Locale
 import java.text.SimpleDateFormat
@@ -212,6 +214,25 @@ class MyApplication : Application() {
                     override fun onCancelled(error: DatabaseError) {
                     }
                 })
+        }
+
+        fun removeFromFavorite(context: Context, bookId: String){
+            val TAG = "REMOVE_FAV_TAG"
+            Log.d(PdfDetailActivity.TAG, "removeFromFavorite: Removing from fav")
+
+            val firebaseAuth = FirebaseAuth.getInstance()
+
+            //database ref
+            val ref = FirebaseDatabase.getInstance().getReference("Users")
+            ref.child(firebaseAuth.uid!!).child("Favorites").child(bookId)
+                .removeValue().addOnSuccessListener {
+                    Log.d(PdfDetailActivity.TAG, "removeFromFavorite: Removed from fav")
+                    Toast.makeText(context, "Xóa thành công",Toast.LENGTH_SHORT).show()
+                }
+                .addOnFailureListener { e->
+                    Log.d(PdfDetailActivity.TAG, "removeFromFavorite: Failed to remove due to ${e.message}")
+                    Toast.makeText(context, "Xóa thất bại",Toast.LENGTH_SHORT).show()
+                }
         }
     }
 }

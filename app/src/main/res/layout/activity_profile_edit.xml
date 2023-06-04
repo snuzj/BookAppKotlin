@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.profiles.ProfileEditActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbarRl"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize">
+        <!--backButton-->
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/back"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:src="@drawable/ic_back_black" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo"/>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/titleTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/editProfile"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_below="@id/toolbarRl"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/subTitleTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Những người thăm hồ sơ của bạn sẽ thấy nó.Hãy thể hiện phong cách của bạn."
+        android:textSize="16sp"
+        android:textColor="@color/gray"
+        android:layout_below="@id/titleTv"/>
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profileIv"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_below="@id/subTitleTv"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/profilelogo"
+        app:shapeAppearanceOverlay="@style/styleRoundedCornersImage"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_below="@id/profileIv"
+        android:layout_marginTop="20dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameTil"
+            android:hint="@string/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/twitter"
+            app:boxStrokeWidth="1dp"
+            app:shapeAppearanceOverlay="@style/Button4"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/lightgray"
+                android:drawableStart="@drawable/ic_person_gray"
+                android:drawablePadding="10dp"
+                android:inputType="textPersonName|textCapWords"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--Button-->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/updateBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameTil"
+            android:layout_marginTop="20dp"
+            app:backgroundTint="@color/black"
+            android:text="@string/update"
+            android:textColor="@color/white"/>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

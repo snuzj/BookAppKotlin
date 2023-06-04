@@ -54,4 +54,7 @@ dependencies {
 
     //pdf library
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+
+    //import image
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
 }

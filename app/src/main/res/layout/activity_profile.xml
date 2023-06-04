@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.profiles.ProfileActivity">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        android:background="@color/twitter"/>
+
+    <ImageButton
+        android:id="@+id/backBtn"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_back_black"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        app:tint="@color/white"
+        android:background="@drawable/shape_circlebutton01"
+        app:backgroundTint="#99000000"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="165dp"
+        android:background="@color/white"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/profileEditBtn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="175dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/shape_button04"
+        android:padding="10dp"
+        android:text="@string/editProfile"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profileIv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="120dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profilelogo"
+        app:shapeAppearanceOverlay="@style/styleRoundedCornersImage"
+        />
+
+    <TextView
+        android:id="@+id/nameTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profileIv"
+        android:text="@string/name"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:id="@+id/emailTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameTv"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/gray"
+        android:text="@string/email"
+        android:layout_centerVertical="true"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/accountTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/emailTv"
+        android:drawableStart="@drawable/ic_person_gray"
+        android:drawablePadding="5dp"
+        android:text="@string/n_a"
+        android:textColor="@color/gray"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/memberDateTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tham_gia"
+        android:textSize="16sp"
+        android:textColor="@color/gray"
+        android:drawableStart="@drawable/baseline_calendar_month_24"
+        android:layout_toEndOf="@id/accountTv"
+        android:drawablePadding="5dp"
+        android:layout_below="@id/emailTv"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        />
+
+    <TextView
+        android:id="@+id/FavoritesTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/follow"
+        android:textSize="16sp"
+        android:textColor="@color/gray"
+        android:layout_below="@id/memberDateTv"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_below="@id/FavoritesTv"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lightgray" />
+
+    <TextView
+        android:id="@+id/favoritesLabelTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fav_books"
+        android:layout_below="@id/view1"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginStart="10dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/favoriteRv"
+        android:layout_below="@id/favoritesLabelTv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/row_pdf_favorite"/>
+
+
+
+
+
+</RelativeLayout>

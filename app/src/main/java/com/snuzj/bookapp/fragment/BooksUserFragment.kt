@@ -13,8 +13,8 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.snuzj.bookapp.databinding.FragmentBooksUserBinding
-import com.snuzj.bookapp.pdf.ModelPdf
-import com.snuzj.bookapp.pdf.user.AdapterPdfUser
+import com.snuzj.bookapp.models.ModelPdf
+import com.snuzj.bookapp.adapters.AdapterPdfUser
 
 class BooksUserFragment : Fragment() {
 
@@ -151,7 +151,7 @@ class BooksUserFragment : Fragment() {
                         pdfArrayList.add(model!!)
                     }
                     //setup adapter
-                    adapterPdfUser = AdapterPdfUser(context!!, pdfArrayList)
+                    AdapterPdfUser(context!!, pdfArrayList).also { this@BooksUserFragment.adapterPdfUser = it }
                     //set adapter to recyclerview
                     binding.booksRv.adapter = adapterPdfUser
 

@@ -10,7 +10,7 @@
     <string name="SignupTv">Tạo tài khoản của bạn</string>
     <string name="loginTv">Để bắt đầu, trước tiên hãy điền thông tin tài khoản của bạn</string>
     <string name="back">back</string>
-    <string name="name">Tên</string>
+    <string name="name">Tên người dùng</string>
     <string name="register">Đăng ký</string>
     <string name="confirmpass">Xác nhận mật khẩu</string>
     <string name="logoutbtn">logoutBtn</string>
@@ -52,4 +52,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="main_dashboard">Trang chủ</string>
+    <string name="favoritebtn">favoriteBtn</string>
+    <string name="commentbtn">commentBtn</string>
+    <string name="editProfile">Tùy chỉnh hồ sơ</string>
+    <string name="tham_gia">Đã tham gia</string>
+    <string name="follow">Đang theo dõi</string>
+    <string name="update">Cập nhật</string>
+    <string name="fav_books">Mục yêu thích</string>
 </resources>
