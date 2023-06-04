@@ -13,7 +13,7 @@ List of works to do:
 9. Show Books Details ✓
 10. Read Books: All Users Access ✓
 11. Download Books: All Users Access ✓
-12. Show Books: User Access x
+12. Show Books: User Access ✓
 13. Add to Favorite: User Access 
 14. Manage Profiles: All Users Access x
 15. Favorite Books x
