@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="0dp"
+        app:contentPadding="8dp">
+    <RelativeLayout
+        android:id="@+id/commentRl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!--image view-->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileIv"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profilelogo"
+            app:shapeAppearanceOverlay="@style/styleRoundedCornersImage"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="5dp"/>
+        <!--text view name profile-->
+        <TextView
+            android:id="@+id/nameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_toEndOf="@id/profileIv"
+            android:textSize="14sp"/>
+        <!--text view : Date of comment add -->
+        <TextView
+            android:id="@+id/dateTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/nameTv"
+            android:text="DD/MM/yyyy"
+            android:layout_marginStart="10dp"
+            android:textSize="14sp"
+            android:textColor="@color/gray" />
+        <TextView
+            android:id="@+id/commentLabelTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameTv"
+            android:layout_toEndOf="@id/profileIv"
+            android:text="Đã bình luận:"
+            android:textSize="14sp"
+            android:textColor="@color/gray"
+            android:layout_marginTop="5dp"/>
+        <!--comment-->
+        <TextView
+            android:id="@+id/commentTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/commentLabelTv"
+            android:layout_toEndOf="@id/profileIv"
+            android:text="Bình luận ở đây"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"/>
+    </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/divider"
+        style="?actionBarDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lightgray"/>
+
+
+</LinearLayout>

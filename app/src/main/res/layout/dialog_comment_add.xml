@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="20dp"
+    android:background="@drawable/shape_border_item">
+
+    <!--textview:dialog title-->
+    <TextView
+        android:id="@+id/titleTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:padding="5dp"
+        android:text="Thêm bình luận"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/twitter"/>
+
+    <!--TextInputLayout: input comment-->
+    <EditText
+        android:id="@+id/commentEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleTv"
+        android:hint="Bình luận của bạn"
+        android:textColorHint="@color/gray"
+        android:drawableStart="@drawable/baseline_insert_comment_24"
+        android:drawablePadding="10dp"
+        android:layout_marginTop="20dp"
+        android:inputType="textMultiLine|textCapSentences"
+        android:backgroundTint="@color/twitter"
+        />
+
+    <!--Add Button-->
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/commentEt"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:text="Gửi"/>
+
+
+</RelativeLayout>

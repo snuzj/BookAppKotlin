@@ -3,6 +3,7 @@
 package com.snuzj.bookapp.activities.pdf
 
 import android.Manifest
+import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
+import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
@@ -17,21 +19,30 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.snuzj.bookapp.R
+import com.snuzj.bookapp.adapters.AdapterComment
 import com.snuzj.bookapp.application.Constaints
 import com.snuzj.bookapp.application.MyApplication
 import com.snuzj.bookapp.databinding.ActivityPdfDetailBinding
+import com.snuzj.bookapp.databinding.CustomToastBinding
+import com.snuzj.bookapp.databinding.DialogCommentAddBinding
+import com.snuzj.bookapp.models.ModelComment
 import java.io.FileOutputStream
 
 @Suppress("DEPRECATION")
 class PdfDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPdfDetailBinding
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var commentArrayList: ArrayList<ModelComment> //to hold comment
+    //adapter to be set recyclerview
+    private lateinit var adapterComment: AdapterComment
+
     private var bookId = ""
     private var bookTitle = ""
     private var bookUrl = ""
     private var isInMyFavorite = false
 
-    private lateinit var firebaseAuth: FirebaseAuth
+
 
     companion object {
         const val TAG = "BOOK_DETAILS_TAG"
@@ -48,9 +59,23 @@ class PdfDetailActivity : AppCompatActivity() {
         MyApplication.icrementBookViewCount(bookId)
 
         loadBookDetails()
+        showComments()
 
         binding.backBtn.setOnClickListener {
             onBackPressed()
+        }
+
+        binding.addCommentBtn.setOnClickListener {
+            //to add comment , must be log in , if not just show a message youre not log in
+            if(firebaseAuth.currentUser == null){
+                //user not logged in, dont allow adding comment
+                Toast.makeText(this,"Bạn chưa đăng nhập",Toast.LENGTH_SHORT).show()
+            }
+            else{
+                //user logged in, add comment
+                addCommentDialog()
+
+            }
         }
 
         binding.readBookBtn.setOnClickListener {
@@ -98,6 +123,110 @@ class PdfDetailActivity : AppCompatActivity() {
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Đang tải")
         progressDialog.setCanceledOnTouchOutside(false)
+    }
+
+    private fun showComments() {
+        //init arraylist
+        commentArrayList = ArrayList()
+
+        //db path to load comments
+        val ref = FirebaseDatabase.getInstance().getReference("Books")
+        ref.child(bookId).child("Comments")
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    //clear list
+                    commentArrayList.clear()
+                    for (ds in snapshot.children){
+                        //get data s model, be carefull of spellings and data type
+                        val model = ds.getValue(ModelComment::class.java)
+                        //add to list
+                        commentArrayList.add(model!!)
+                    }
+                    //set up adapter
+                    adapterComment = AdapterComment(this@PdfDetailActivity,commentArrayList)
+                    //set up adapter to recyclerview
+                    binding.commentRv.adapter = adapterComment
+                }
+
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+            })
+    }
+
+    private var comment =""
+    private fun addComment() {
+        //show progress
+        progressDialog.setMessage("Đang thêm bình luận của bạn")
+        progressDialog.show()
+
+        //show timestamp
+        val timestamp = System.currentTimeMillis().toString()
+
+        //set up data to add in db for comment
+        val hashMap = HashMap<String, Any>()
+        hashMap["id"] = timestamp
+        hashMap["bookId"] = bookId
+        hashMap["timestamp"] = timestamp
+        hashMap["comment"] = comment
+        hashMap["uid"] = firebaseAuth.uid.toString()
+
+        //db path to add data into it
+        // Books > bookId > Comment > commentId > commentData
+        val ref = FirebaseDatabase.getInstance().getReference("Books")
+        ref.child(bookId).child("Comments").child(timestamp)
+            .setValue(hashMap)
+            .addOnSuccessListener {
+                progressDialog.dismiss()
+
+                val toast = Toast(this)
+                toast.duration = Toast.LENGTH_SHORT
+
+                // Inflate custom layout for Toast
+                val layoutInflater = LayoutInflater.from(this)
+                val binding = CustomToastBinding.inflate(layoutInflater)
+                val layout = binding.root
+
+                // Set the custom layout to the Toast
+                toast.view = layout
+
+                // Show the Toast
+                toast.show()
+            }
+            .addOnFailureListener { e->
+                progressDialog.dismiss()
+                Toast.makeText(this,"Bình luận không được gửi ${e.message}",Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    private fun addCommentDialog() {
+        //inflate , bind view for dialog dialog_comment_add.xml
+        val commentAddBinding = DialogCommentAddBinding.inflate(LayoutInflater.from(this))
+
+        //set up alert dialog
+        val builder = AlertDialog.Builder(this, R.style.CustomDialog)
+
+        builder.setView(commentAddBinding.root)
+
+        //create and show alert dialog
+        val alertDialog = builder.create()
+        alertDialog.show()
+
+        //handle click, add comment
+        commentAddBinding.submitBtn.setOnClickListener {
+            //get data
+            comment = commentAddBinding.commentEt.text.toString().trim()
+            //validate data
+            if (comment.isEmpty()){
+                Toast.makeText(this,"Hãy nhập bình luận của bạn",Toast.LENGTH_SHORT).show()
+            }
+            else{
+                alertDialog.dismiss()
+                addComment()
+            }
+        }
+
     }
 
     private fun checkIsFavorite() {

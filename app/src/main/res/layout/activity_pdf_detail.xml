@@ -247,8 +247,6 @@
         </LinearLayout>
     </ScrollView>
 
-
-
     <View
         android:id="@+id/scrollDiv"
         android:layout_width="match_parent"
@@ -257,9 +255,22 @@
         android:background="@color/lightgray"
         android:layout_below="@id/pdfSv"/>
 
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/commentRv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_below="@id/scrollDiv"
+        android:layout_above="@id/booksOptionsLl"
+        tools:listitem="@layout/row_comment"/>
+
+
+
+
     <!--read Book Button-->
     <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/commentBtn"
+        android:id="@+id/addCommentBtn"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:background="@drawable/shape_circlebutton01"
