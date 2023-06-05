@@ -17,5 +17,5 @@ List of works to do:
 13. Add to Favorite: User Access ✓
 14. Manage Profiles: All Users Access ✓
 15. Favorite Books ✓
-16. Book Comments: All Users x
+16. Book Comments: All Users ✓
 
