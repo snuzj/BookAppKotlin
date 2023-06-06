@@ -60,6 +60,7 @@ class AdapterComment(
         holder.dateTv.text = date
         holder.commentTv.text = comment
 
+        loadUserInfo(model,holder)
         //we dont have user name , profile picture but have uid, loading using that uid
         loadUserDetails(model, holder)
 
@@ -73,6 +74,15 @@ class AdapterComment(
             }
         }
 
+    }
+
+    private fun loadUserInfo(model: ModelComment, holder: AdapterComment.HolderComment) {
+        if (firebaseAuth.currentUser!!.isEmailVerified){
+            binding.accountStatusIv.setImageResource(R.drawable.baseline_check_circle_24)
+        }
+        else{
+            binding.accountStatusIv.setImageResource(R.drawable.transparentlogo)
+        }
     }
 
     private fun deleteCommentDialog(model: ModelComment, holder: HolderComment) {

@@ -51,7 +51,7 @@ class ProfileActivity : AppCompatActivity() {
         firebaseUser = firebaseAuth.currentUser!!
         loadUserInfo()
         loadFavoriteBooks()
-        
+
         binding.accountTv.text = "N/A"
         binding.memberDateTv.text ="N/A"
 

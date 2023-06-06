@@ -37,14 +37,22 @@
             android:textStyle="bold"
             android:layout_toEndOf="@id/profileIv"
             android:textSize="14sp"/>
+        <ImageView
+            android:id="@+id/accountStatusIv"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/nameTv"
+            android:src="@drawable/baseline_check_circle_24"
+            android:layout_marginTop="4dp"/>
         <!--text view : Date of comment add -->
         <TextView
             android:id="@+id/dateTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/nameTv"
+            android:layout_alignParentEnd="true"
             android:text="DD/MM/yyyy"
-            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:textSize="14sp"
             android:textColor="@color/gray" />
         <TextView
