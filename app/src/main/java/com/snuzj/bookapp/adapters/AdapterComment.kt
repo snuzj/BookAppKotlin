@@ -60,7 +60,6 @@ class AdapterComment(
         holder.dateTv.text = date
         holder.commentTv.text = comment
 
-        loadUserInfo(model,holder)
         //we dont have user name , profile picture but have uid, loading using that uid
         loadUserDetails(model, holder)
 
@@ -74,15 +73,6 @@ class AdapterComment(
             }
         }
 
-    }
-
-    private fun loadUserInfo(model: ModelComment, holder: AdapterComment.HolderComment) {
-        if (firebaseAuth.currentUser!!.isEmailVerified){
-            binding.accountStatusIv.setImageResource(R.drawable.baseline_check_circle_24)
-        }
-        else{
-            binding.accountStatusIv.setImageResource(R.drawable.transparentlogo)
-        }
     }
 
     private fun deleteCommentDialog(model: ModelComment, holder: HolderComment) {
@@ -123,9 +113,15 @@ class AdapterComment(
                     //get name, get profile image
                     val name = snapshot.child("name").value.toString()
                     val profileImage = snapshot.child("profileImage").value.toString()
-
+                    val isEmailVerified = snapshot.child("isEmailVerified").getValue(Boolean::class.java)
                     //set data
                     holder.nameTv.text = name
+
+                    if (isEmailVerified == true) {
+                        holder.accountStatusIv.setImageResource(R.drawable.baseline_check_circle_24)
+                    } else {
+                        holder.accountStatusIv.setImageResource(R.drawable.transparentlogo)
+                    }
                     try {
                         Glide.with(context)
                             .load(profileImage)
@@ -150,5 +146,6 @@ class AdapterComment(
         val nameTv = binding.nameTv
         val dateTv = binding.dateTv
         var commentTv = binding.commentTv
+        val accountStatusIv: ImageView = binding.accountStatusIv
     }
 }

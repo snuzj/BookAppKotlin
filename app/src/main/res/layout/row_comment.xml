@@ -37,6 +37,7 @@
             android:textStyle="bold"
             android:layout_toEndOf="@id/profileIv"
             android:textSize="14sp"/>
+
         <ImageView
             android:id="@+id/accountStatusIv"
             android:layout_width="14dp"

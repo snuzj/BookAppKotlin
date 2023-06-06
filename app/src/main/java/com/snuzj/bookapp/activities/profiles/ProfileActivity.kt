@@ -123,16 +123,6 @@ class ProfileActivity : AppCompatActivity() {
 
 
     private fun loadUserInfo() {
-        //check if user is verified or not, change affect after re-login when u already verified email
-        if (firebaseUser.isEmailVerified){
-            binding.accountStatusIv.setImageResource(R.drawable.baseline_check_circle_24)
-        }
-        else{
-            binding.accountStatusIv.setImageResource(R.drawable.transparentlogo)
-        }
-
-
-
         //db ref to load user info
         val ref = FirebaseDatabase.getInstance().getReference("Users")
         ref.child(firebaseAuth.uid!!)
@@ -145,6 +135,16 @@ class ProfileActivity : AppCompatActivity() {
                     val timestamp = snapshot.child("timestamp").value.toString()
                     val uid = snapshot.child("uid").value.toString()
                     val userType = snapshot.child("userType").value.toString()
+
+                    //check if user is verified or not, change affect after re-login when u already verified email
+                    if (firebaseUser.isEmailVerified){
+                        ref.child(firebaseAuth.uid!!).child("isEmailVerified").setValue(true)
+                        binding.accountStatusIv.setImageResource(R.drawable.baseline_check_circle_24)
+
+                    }
+                    else{
+                        binding.accountStatusIv.setImageResource(R.drawable.transparentlogo)
+                    }
 
                     //convert timestamp to peroper date format
                     val formattedDate = MyApplication.formatTimeStamp(timestamp.toLong())
