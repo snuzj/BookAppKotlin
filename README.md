@@ -9,8 +9,8 @@ Repository này được xây dựng phục vụ cho môn học "Lập trình �
 - Đối với mỗi quyền truy cập thì người dùng có thể tương tác với ứng dụng một cách khác nhau tương ứng với quyền truy cập được cung cấp cho tài khoản đã đăng ký
 - Đối với <b>khách</b>: Là đối tượng không đăng nhập tài khoản, cho nên họ chỉ được xem thông tin về các cuốn sách có trong app
 - Đối với <b>user</b>: 
-  1. Ngoài việc có thể xem thông tin, họ có thể xem nội dung cuốn sách, lưu lại thông tin sách đã đọc trong mục "yêu thích", có thể tải về, gửi nhận xét đánh giá phía dưới cuốn sách
-  2. Họ còn có thể điều chỉnh thông tin hiển thị cá nhân, kèm với xác minh tài khoản để có thể được hỗ trợ trong tương lai
+  - Ngoài việc có thể xem thông tin, họ có thể xem nội dung cuốn sách, lưu lại thông tin sách đã đọc trong mục "yêu thích", có thể tải về, gửi nhận xét đánh giá phía dưới cuốn sách
+  - Họ còn có thể điều chỉnh thông tin hiển thị cá nhân, kèm với xác minh tài khoản để có thể được hỗ trợ trong tương lai
 - Đối với <b>admin</b>:
   - Ngoài những thứ mà "user" có thể làm, "admin" có thể trực tiếp thêm, sửa , xóa dữ liệu danh mục, sách
 
