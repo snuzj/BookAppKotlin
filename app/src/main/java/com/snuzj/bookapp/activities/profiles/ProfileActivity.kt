@@ -1,5 +1,10 @@
+@file:Suppress("DEPRECATION")
+
 package com.snuzj.bookapp.activities.profiles
 
+import android.app.AlertDialog
+import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
@@ -8,10 +13,11 @@ import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
-import androidx.core.content.ContentProviderCompat.requireContext
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -32,14 +38,26 @@ class ProfileActivity : AppCompatActivity() {
 
     private lateinit var adapterPdfFavorite: AdapterPdfFavorite
 
+    private lateinit var firebaseUser: FirebaseUser
+
+    private lateinit var progressDialog: ProgressDialog
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         firebaseAuth = FirebaseAuth.getInstance()
+        firebaseUser = firebaseAuth.currentUser!!
         loadUserInfo()
         loadFavoriteBooks()
+        
+        binding.accountTv.text = "N/A"
+        binding.memberDateTv.text ="N/A"
+
+        progressDialog = ProgressDialog(this)
+        progressDialog.setTitle("Đang tải")
+        progressDialog.setCanceledOnTouchOutside(false)
 
         //handle click, go back
         binding.backBtn.setOnClickListener {
@@ -50,9 +68,71 @@ class ProfileActivity : AppCompatActivity() {
         binding.profileEditBtn.setOnClickListener {
             startActivity(Intent(this,ProfileEditActivity::class.java))
         }
+        //handle click, more Btn
+        binding.moreBtn.setOnClickListener {
+            moreOptionsDialog()
+        }
     }
 
+    private fun moreOptionsDialog() {
+        //options to show in dialog
+        val options = arrayOf("Xác minh tài khoản")
+        val builder = AlertDialog.Builder(this)
+        builder.setItems(options) { dialog, position ->
+            //handle item click
+            if (position == 0) {
+                if (firebaseUser.isEmailVerified) {
+                    //user verifired
+                    Toast.makeText(this, "Tài khoản đã được xác minh", Toast.LENGTH_SHORT).show()
+                } else {
+                    emailVerificationDialog()
+                }
+            }
+        }.show()
+    }
+    private fun emailVerificationDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Xác minh tài khoản")
+            .setMessage("Bạn có chắc chắn gửi yêu cầu xác minh tài khoản tới ${firebaseUser.email}")
+            .setPositiveButton("Gửi"){d,e->
+                sendEmailVerification()
+            }
+            .setNegativeButton("Hủy bỏ"){d,e->
+                d.dismiss()
+            }
+            .show()
+    }
+
+    private fun sendEmailVerification() {
+        //show progress dialog
+        progressDialog.setMessage("Gửi yêu cầu xác minh tới email: ${firebaseUser.email}")
+        progressDialog.show()
+
+        //send instructions
+        firebaseUser.sendEmailVerification()
+            .addOnSuccessListener {
+                //successfully sent
+                progressDialog.dismiss()
+                Toast.makeText(this,"Yêu cầu đã được gửi, hãy kiểm tra email của bạn",Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e->
+                progressDialog.dismiss()
+                Toast.makeText(this,"Yêu cầu gửi thất bại vì ${e.message}",Toast.LENGTH_SHORT).show()
+            }
+    }
+
+
     private fun loadUserInfo() {
+        //check if user is verified or not, change affect after re-login when u already verified email
+        if (firebaseUser.isEmailVerified){
+            binding.accountStatusIv.setImageResource(R.drawable.baseline_check_circle_24)
+        }
+        else{
+            binding.accountStatusIv.setImageResource(R.drawable.transparentlogo)
+        }
+
+
+
         //db ref to load user info
         val ref = FirebaseDatabase.getInstance().getReference("Users")
         ref.child(firebaseAuth.uid!!)
@@ -132,3 +212,5 @@ class ProfileActivity : AppCompatActivity() {
             })
     }
 }
+
+

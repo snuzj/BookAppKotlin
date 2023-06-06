@@ -21,12 +21,26 @@
         android:background="@drawable/shape_circlebutton01"
         app:backgroundTint="#99000000"/>
 
+    <ImageButton
+        android:id="@+id/moreBtn"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/baseline_more_black"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        app:tint="@color/white"
+        android:background="@drawable/shape_circlebutton01"
+        app:backgroundTint="#99000000"/>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginTop="165dp"
-        android:background="@color/white"
-        />
+        android:layout_marginBottom="-2dp"
+        android:background="@color/white" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/profileEditBtn"
@@ -57,26 +71,39 @@
         app:strokeWidth="1dp"
         app:strokeColor="@color/white"
         />
-
+    <RelativeLayout
+        android:id="@+id/nameRl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/profileIv">
     <TextView
         android:id="@+id/nameTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/profileIv"
         android:text="@string/name"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="20sp"
         />
 
+        <ImageView
+            android:id="@+id/accountStatusIv"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/nameTv"
+            android:src="@drawable/baseline_check_circle_24"
+            android:layout_marginTop="4dp"/>
+    </RelativeLayout>
+
     <TextView
         android:id="@+id/emailTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/nameTv"
+        android:layout_below="@id/nameRl"
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
         android:textColor="@color/gray"
