@@ -32,4 +32,5 @@ This repository was built for the subject "Android application programming" with
 - For admins:
   - In addition to what "user" can do, "admin" can directly add, edit, delete the data of categories, books
 <h3>Installation instructions:</h3>
-- The application will be pushed to Google Store in the near future. Or you can visit [Releases](https://github.com/snuzj/BookAppKotlin/releases) to be able to download the latest APK version
+- The application will be pushed to Google Store in the near future. Or You can visit [Releases](https://github.com/snuzj/BookAppKotlin/releases) to be able to download the latest APK version
+
