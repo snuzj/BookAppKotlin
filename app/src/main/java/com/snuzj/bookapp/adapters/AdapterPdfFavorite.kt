@@ -18,8 +18,8 @@ import com.snuzj.bookapp.models.ModelPdf
 
 class AdapterPdfFavorite//constructor
     (//context
-    private val context: Context,//arraylist to hold books
-    private var booksArrayList: ArrayList<ModelPdf>
+    private val context: Context,
+    private var booksArrayList: ArrayList<ModelPdf> //arraylist to hold books
 ) : RecyclerView.Adapter<AdapterPdfFavorite.HolderPdfFavorite>() {
 
     private lateinit var binding: RowPdfFavoriteBinding

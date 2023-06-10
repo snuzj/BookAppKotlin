@@ -73,10 +73,10 @@ class MyApplication : Application() {
                 }
         }
 
-            /*Instead of making new function loadPdfPageCount() to just load pages count if would be more good to use some existing function to do that
+            /*
         * i.e. loadPdfFromUrlSinglePage
-        * We will add another parameter of type TextView e.g. pagesTv
-        * Whenever we call that function
+        * add another parameter of type TextView e.g. pagesTv
+        * Whenever calling that function
         * 1. if we required page numbers we will pass pagesTv(TextView)
         * 2. if we dont require page number we will pass null
         * And in function if pagesTv(TextView) parameter is not null we will set the page number count*/

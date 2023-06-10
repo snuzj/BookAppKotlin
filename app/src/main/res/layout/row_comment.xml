@@ -44,7 +44,7 @@
             android:layout_height="14dp"
             android:layout_marginStart="5dp"
             android:layout_toEndOf="@id/nameTv"
-            android:src="@drawable/baseline_check_circle_24"
+            android:src="@drawable/transparentlogo"
             android:layout_marginTop="4dp"/>
         <!--text view : Date of comment add -->
         <TextView
