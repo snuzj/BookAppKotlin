@@ -17,7 +17,7 @@ Repository này được xây dựng phục vụ cho môn học "Lập trình �
 <h3>Hướng dẫn cài đặt:</h3>
 
 - Ứng dụng sẽ được đẩy lên Google Store trong thời gian tới!!!
-- Hoặc bạn có thể clone lại ứng dụng này: https://github.com/snuzj/BookAppKotlin.git rồi chạy trên Android Studio
+- Hoặc bạn có thể truy cập [Releases](https://github.com/snuzj/BookAppKotlin/releases) để có thể tải phiên bản APK mới nhất
 <h2>English</h2>
 <h3>Describe:</h3>
 
@@ -32,4 +32,5 @@ This repository was built for the subject "Android application programming" with
 - For admins:
   - In addition to what "user" can do, "admin" can directly add, edit, delete the data of categories, books
 <h3>Installation instructions:</h3>
-- The application will be pushed to Google Store in the near future. Or you can clone this app : https://github.com/snuzj/BookAppKotlin.git and then run it on Android Studio
+- The application will be pushed to Google Store in the near future. Or You can visit [Releases](https://github.com/snuzj/BookAppKotlin/releases) to be able to download the latest APK version
+
